@@ -9,14 +9,16 @@ Crea un fichero de texto con algún editor de textos como Notepad
 y después realiza un programa Java que visualice su contenido. 
 Cambia el programa Java para que el nombre del fichero se acepte 
 al ejecutar desde la línea de comandos.*/
-public class Main {
+public class E03 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		File directorio = new File("C:\\Users\\Usuario\\accesoDatos\\Unidad1.3\\src\\");
+		File directorio = new File("C:\\Users\\usuario\\eclipse-workspace\\Unidad1.8");
+		//La idea era no tener que escribir toda la ruta pero cambias de ordenador y las rutas cambian
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("introduzca el nombre del fichero ");
+		//solo pido el nombre del fichero
 		String archivo = teclado.nextLine();
 		File texto = new File(directorio,archivo);
 		
@@ -34,6 +36,6 @@ public class Main {
 			System.out.println("error en lectura");
 			// TODO: handle exception
 		}
-
+teclado.close();
 	}
 }

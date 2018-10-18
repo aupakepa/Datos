@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -17,12 +16,12 @@ A continuación, el programa visualizará el contenido del fichero,
 frase por frase. Cada vez que se ejecute el programa, 
 se tienen que descartar las frases que ya estaban escritas en el fichero. 
 Realiza este ejercicio usando la clase BufferedReader.*/
-public class Main2 {
+public class E07a {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String frase = "";
-		File fichero = new File("./texto2");
+		String frase ="";
+		File fichero = new File("./Ejercicio7.1a");
 		if (!fichero.exists()) {
 			try {
 				fichero.createNewFile();
@@ -31,26 +30,26 @@ public class Main2 {
 				e.printStackTrace();
 			}
 		} else {
-
+			
 		}
-		
+		FileWriter escribir;
 		try {
-			FileWriter escribir = new FileWriter(fichero);
+			escribir = new FileWriter(fichero);
 			Leer.mostrarEnPantalla("introduzca frases para terminar escriba fin");
-			BufferedWriter buffer = new BufferedWriter(escribir);
-			do {
-				frase = Leer.pedirCadena("");
-				if (!frase.equals("fin")) {
-					buffer.write(frase+"\n");
-				}
-			} while (!frase.equals("fin"));
-			buffer.close();
+			PrintWriter buffer = new PrintWriter(escribir);
+		do {
+			frase=Leer.pedirCadena("");
+			if (!frase.equals("fin")) {
+				buffer.println(frase);	
+			}
+		} while (!frase.equals("fin"));
+		escribir.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -58,17 +57,20 @@ public class Main2 {
 		try {
 			buffreader = new BufferedReader(new FileReader(fichero));
 			String linea;
-			while ((linea = buffreader.readLine()) != null) {
-				Leer.mostrarEnPantalla(linea);
-			}
-			buffreader.close();
+			while ((linea = buffreader.readLine() )!=null) {
+					Leer.mostrarEnPantalla(linea);
+				}
+		
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+		 catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 	}
 
-}
+

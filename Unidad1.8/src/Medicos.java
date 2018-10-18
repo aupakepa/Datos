@@ -8,6 +8,7 @@ public class Medicos implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String nombre;
+	
 	private int anio;
 	private double sueldo;
 	private int antiguedad;
@@ -42,5 +43,9 @@ public class Medicos implements Serializable {
 	public void setAntiguedad(int antiguedad) {
 		this.antiguedad = antiguedad;
 	}
-	
+	@Override
+	public String toString() {
+		return "Medicos [nombre=" + nombre + ", anio=" + anio + ", sueldo=" + sueldo + ", antiguedad=" + antiguedad
+				+ "]";
+	}
 }
